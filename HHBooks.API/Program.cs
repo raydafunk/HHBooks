@@ -1,3 +1,4 @@
+using AutoMapper;
 using HHBooks.API.Data;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
@@ -6,8 +7,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 var connString = builder.Configuration.GetConnectionString("HHBookStoreAppDbConnection");
-builder.Services.AddDbContext<HhbookStoreContext>(opitons => opitons.UseSqlServer());
+builder.Services.AddDbContext<HhbookStoreContext>(opitons => opitons.UseSqlServer(connString));
 
+builder.Services.AddAutoMapper(typeof(MapperConfiguration));
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
