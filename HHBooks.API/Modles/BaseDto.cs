@@ -2,6 +2,6 @@
 {
     public abstract class BaseDto
     {
-           public int AuthorsId { get; set; }
+           public int Id { get; set; }
     }
 }

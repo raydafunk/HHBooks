@@ -68,7 +68,7 @@ namespace HHBooks.API.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutAuthor(int id, UpdateAurthorDto authorDto)
         {
-            if (id != authorDto.AuthorsId)
+            if (id != authorDto.Id)
             {
                 return BadRequest();
             }
