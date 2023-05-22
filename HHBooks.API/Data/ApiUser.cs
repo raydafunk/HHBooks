@@ -2,7 +2,7 @@
 
 namespace HHBooks.API.Data
 {
-    public class ApplicationUser : IdentityUser
+    public class ApiUser : IdentityUser
     {
         public string? FirstName { get; set; }
         public string? LastName { get; set; }

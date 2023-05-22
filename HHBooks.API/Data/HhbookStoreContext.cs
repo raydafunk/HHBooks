@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 
 namespace HHBooks.API.Data;
 
-public partial class HhbookStoreContext : IdentityDbContext<ApplicationUser>
+public partial class HhbookStoreContext : IdentityDbContext<ApiUser>
 {
     public HhbookStoreContext()
     {
@@ -65,27 +65,27 @@ public partial class HhbookStoreContext : IdentityDbContext<ApplicationUser>
 
         var  hasher = new PasswordHasher<ApplicationBuilder>();
 
-        modelBuilder.Entity<ApplicationUser>().HasData(
-             new ApplicationUser
+        modelBuilder.Entity<ApiUser>().HasData(
+             new ApiUser
              {
                  Id = "0e2f0b81-f935-4761-8585-b1cf3e2c6827",
-                 Email ="adminhhbookstore.com",
-                 NormalizedEmail ="ADMINHHBOOKSTORE.COM",
-                 UserName = "adminhhbookstore.com",
-                 NormalizedUserName = "ADMINHHBOOKSTORE.COM",
+                 Email = "admin@hhbookstore.com",
+                 NormalizedEmail ="ADMIN@HHBOOKSTORE.COM",
+                 UserName = "admin@hhbookstore.com",
+                 NormalizedUserName = "ADMIN@HHBOOKSTORE.COM",
                  FirstName =  "System",
                  LastName = "Admin",
                  PasswordHash = hasher.HashPassword(null, "P@ssword1")
 
 
              },
-             new ApplicationUser
+             new ApiUser
              {
                  Id = "333bee64-2460-4a6e-a275-6a67f88a714b",
-                 Email = "userhhbookstore.com",
-                 NormalizedEmail = "USERHHBOOKSTORE.COM",
-                 UserName = "userhhbookstore.com",
-                 NormalizedUserName = "USERHHBOOKSTORE.COM",
+                 Email = "user@hhbookstore.com",
+                 NormalizedEmail = "USER@HHBOOKSTORE.COM",
+                 UserName = "user@hhbookstore.com",
+                 NormalizedUserName = "USERHH@BOOKSTORE.COM",
                  FirstName = "System",
                  LastName = "User",
                  PasswordHash = hasher.HashPassword(null, "P@ssword1")
