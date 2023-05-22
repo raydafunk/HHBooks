@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace HHBooks.API.Data;
 
-public partial class HhbookStoreContext : DbContext
+public partial class HhbookStoreContext : IdentityDbContext
 {
     public HhbookStoreContext()
     {
@@ -21,6 +20,8 @@ public partial class HhbookStoreContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        base.OnModelCreating(modelBuilder);
+
         modelBuilder.Entity<Author>(entity =>
         {
             entity.HasKey(e => e.AuthorsId).HasName("PK__Authors__CF8F070A64F97240");
