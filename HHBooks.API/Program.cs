@@ -10,7 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 var connString = builder.Configuration.GetConnectionString("HHBookStoreAppDbConnection");
 builder.Services.AddDbContext<HhbookStoreContext>(opitons => opitons.UseSqlServer(connString));
-builder.Services.AddIdentityCore<IdentityUser>()
+builder.Services.AddIdentityCore<ApplicationUser>()
                  .AddRoles<IdentityRole>()
                  .AddEntityFrameworkStores<HhbookStoreContext>();
 

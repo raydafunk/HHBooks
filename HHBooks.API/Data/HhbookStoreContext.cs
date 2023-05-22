@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HHBooks.API.Data;
 
-public partial class HhbookStoreContext : IdentityDbContext
+public partial class HhbookStoreContext : IdentityDbContext<ApplicationUser>
 {
     public HhbookStoreContext()
     {
