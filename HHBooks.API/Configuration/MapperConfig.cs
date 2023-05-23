@@ -2,6 +2,7 @@
 using HHBooks.API.Data;
 using HHBooks.API.Modles.Author;
 using HHBooks.API.Modles.Book;
+using HHBooks.API.Modles.User;
 
 namespace HHBooks.API.Configuration
 {
@@ -22,7 +23,7 @@ namespace HHBooks.API.Configuration
                 .ForMember(q => q.AutorName, d => d.MapFrom(map => $"{map.Author!.FirstName} {map.Author.LastName}"))
                 .ReverseMap();
 
-
+            CreateMap<ApiUser, UserDto>().ReverseMap();
 
         }
     }

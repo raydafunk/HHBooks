@@ -1,14 +1,21 @@
-using AutoMapper;
 using HHBooks.API.Configuration;
 using HHBooks.API.Data;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Serilog;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 var connString = builder.Configuration.GetConnectionString("HHBookStoreAppDbConnection");
 builder.Services.AddDbContext<HhbookStoreContext>(opitons => opitons.UseSqlServer(connString));
+builder.Services.AddIdentityCore<ApiUser>()
+                 .AddRoles<IdentityRole>()
+                 .AddEntityFrameworkStores<HhbookStoreContext>();
+
 
 builder.Services.AddAutoMapper(typeof(MapperConfig));
 builder.Services.AddControllers();
@@ -26,7 +33,25 @@ builder.Services.AddCors(opitons =>
     .AllowAnyHeader()
     .AllowAnyOrigin());
 });
-
+builder.Services.AddAuthentication(opts =>
+{
+    opts.DefaultSignInScheme = JwtBearerDefaults.AuthenticationScheme;
+    opts.DefaultChallengeScheme =JwtBearerDefaults.AuthenticationScheme;
+})
+   .AddJwtBearer(opts =>
+   {
+       opts.TokenValidationParameters = new TokenValidationParameters
+       {
+           ValidateIssuerSigningKey = true,
+           ValidateIssuer = true,
+           ValidateAudience = true,
+           ValidateLifetime = true,
+           ClockSkew = TimeSpan.Zero,
+           ValidIssuer = builder.Configuration["JwtSettings:Issuer"],
+           ValidAudience = builder.Configuration["JwtSettings:Audience"],
+           IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JwtSettings:key"]!))
+       };
+   });
 var app = builder.Build();
 
 
@@ -40,6 +65,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseCors("AllowAll");
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 
