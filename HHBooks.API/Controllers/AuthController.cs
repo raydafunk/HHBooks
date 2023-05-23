@@ -2,6 +2,7 @@
 using HHBooks.API.Data;
 using HHBooks.API.Modles.User;
 using HHBooks.API.Static;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -13,6 +14,7 @@ namespace HHBooks.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [AllowAnonymous]
     public class AuthController : ControllerBase
     {
         private readonly ILogger<AuthController> _logger;

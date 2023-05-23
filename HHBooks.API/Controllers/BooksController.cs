@@ -4,11 +4,13 @@ using HHBooks.API.Data;
 using AutoMapper;
 using HHBooks.API.Modles.Book;
 using AutoMapper.QueryableExtensions;
+using Microsoft.AspNetCore.Authorization;
 
 namespace HHBooks.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class BooksController : ControllerBase
     {
         private readonly HhbookStoreContext _context;
@@ -51,6 +53,7 @@ namespace HHBooks.API.Controllers
         // PUT: api/Books/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
+        [Authorize(Roles ="Administrator")]
         public async Task<IActionResult> PutBook(int id, UpdateBookDto bookDto)
         {
             if (id != bookDto.Id)
@@ -88,6 +91,7 @@ namespace HHBooks.API.Controllers
         // POST: api/Books
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
+        [Authorize(Roles = "Administrator")]
         public async Task<ActionResult<Book>> PostBook(CreateBookDto bookDto)
         {
             var book = mapper.Map<Book>(bookDto);
@@ -99,6 +103,7 @@ namespace HHBooks.API.Controllers
 
         // DELETE: api/Books/5
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> DeleteBook(int id)
         {
             if (_context.Books == null)
