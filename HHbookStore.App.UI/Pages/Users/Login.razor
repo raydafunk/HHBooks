@@ -1,0 +1,46 @@
+﻿@page "/users/Login"
+@inject IAuthenticationService authService
+<h3>Login</h3>
+
+ <div>
+    <EditForm Model="LoginModel" OnInvalidSubmit="HandleLogin">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+        <div class="form-control-lg">
+            <label for="email">Email Address</label>
+            <InputText class="form-contorl" @bind-Value="LoginModel.Email" />
+            <ValidationMessage For="@(() => LoginModel.Email)" />
+        </div>
+        <div class="form-control-lg">
+            <label for="Password">Password</label>
+            <InputText class="form-contorl" typeof="password" @bind-Value="LoginModel.Password" />
+            <ValidationMessage For="@(() => LoginModel.Password)" />
+        </div>
+        <button type="submit" class="btn btn-primary btn-group">Register</button>
+    </EditForm>
+ </div>
+@code {
+    LogiUserDto LoginModel = new LogiUserDto();
+    string message = string.Empty;
+    public async Task HandleLogin()
+    {
+        try
+        {
+            var respone = await authService.AuthenticateAsync(LoginModel);
+
+            if (respone)
+            {
+                
+            }
+            message = "Invalid Credentials, Please try again";
+        }
+        catch (ApiException ex)
+        {
+            if (ex.StatusCode >= 200 && ex.StatusCode <= 299)
+            {
+            }
+            message = ex.Response;
+        }
+    }
+
+}
