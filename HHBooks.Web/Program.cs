@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<HHBooksDBContext>( options =>
+builder.Services.AddDbContextFactory<HHBooksDBContext>( options =>
 {
     var connectionString = builder.Configuration.GetConnectionString("HHBooksConnection");
     options.UseSqlServer(connectionString);

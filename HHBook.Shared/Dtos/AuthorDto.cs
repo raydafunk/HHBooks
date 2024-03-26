@@ -1,4 +1,4 @@
-﻿namespace HHBook.Shared.Dto;
+﻿namespace HHBook.Shared.Dtos;
 
 public record struct AuthorDto(string Name,string Slug);
 
