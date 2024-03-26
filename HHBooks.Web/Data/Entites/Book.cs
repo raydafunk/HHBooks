@@ -22,11 +22,12 @@ namespace HHBooks.Web.Data.Entites
 
         [Range(1, int.MaxValue)]
         public int NumPages { get; set; }
-        
+
         [Required, MaxLength(180), Unicode(false)]
         public string Image { get; set; }
+
         [MaxLength(250)]
-        public string BuyLink { get; set; }
+        public string? BuyLink { get; set; }
 
         [ForeignKey(nameof(AuthorId))]
         public virtual Author Author { get; set; }
