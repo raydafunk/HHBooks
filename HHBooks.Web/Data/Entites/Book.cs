@@ -21,7 +21,7 @@ namespace HHBooks.Web.Data.Entites
         public string Format { get; set; }
 
         [Range(1, int.MaxValue)]
-        public int Numpages { get; set; }
+        public int NumPages { get; set; }
         
         [Required, MaxLength(180), Unicode(false)]
         public string Image { get; set; }

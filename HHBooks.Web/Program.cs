@@ -1,7 +1,14 @@
 using HHBooks.Web.Components;
+using HHBooks.Web.Data;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddDbContext<HHBooksDBContext>( options =>
+{
+    var connectionString = builder.Configuration.GetConnectionString("HHBooksConnection");
+    options.UseSqlServer(connectionString);
+});
 // Add services to the container.
 builder.Services.AddRazorComponents();
 
