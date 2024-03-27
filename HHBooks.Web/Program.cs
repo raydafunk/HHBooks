@@ -1,5 +1,7 @@
 using HHBooks.Web.Components;
 using HHBooks.Web.Data;
+using HHBooks.Web.Interfaces;
+using HHBooks.Web.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +13,7 @@ builder.Services.AddDbContextFactory<HHBooksDBContext>( options =>
 });
 // Add services to the container.
 builder.Services.AddRazorComponents();
+builder.Services.AddTransient<IBooksServices, BooksServices>();
 
 var app = builder.Build();
 
