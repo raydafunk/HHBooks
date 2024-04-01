@@ -1,17 +1,21 @@
 ﻿@inherits LayoutComponentBase
 
-<div class="page">
-    <div class="sidebar">
-        <NavMenu />
+<NavMenu />
+
+<div class="container-fluid bg-black">
+    <div class="container d-flex flex-column justify-content-center align-items-center p-5">
+        <SectionOutlet SectionName="PageTitle" />
     </div>
+</div>
 
-    <main>
-        <div class="top-row px-4">
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
-        </div>
+@Body
 
-        <article class="content px-4">
-            @Body
-        </article>
-    </main>
+<hr />
+
+<div class="container">
+    <footer class="d-flex align-items-center justify-content-center">
+        <p> 
+            &copy; @DateTime.Today.Year - HHbBooks | Development by Numchuck Studio
+        </p>
+    </footer>
 </div>
