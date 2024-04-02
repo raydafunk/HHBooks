@@ -1,7 +1,7 @@
 ﻿
 using HHBook.Shared.Dtos;
 
-namespace HHBooks.Web.Interfaces
+namespace HHBook.Shared.Interfaces
 {
     public interface IBooksServices
     {

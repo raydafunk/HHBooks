@@ -1,7 +1,7 @@
 ﻿
 using HHBook.Shared.Dtos;
+using HHBook.Shared.Interfaces;
 using HHBooks.Web.Data;
-using HHBooks.Web.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace HHBooks.Web.Services

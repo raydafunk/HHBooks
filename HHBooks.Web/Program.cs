@@ -1,6 +1,6 @@
+using HHBook.Shared.Interfaces;
 using HHBooks.Web.Components;
 using HHBooks.Web.Data;
-using HHBooks.Web.Interfaces;
 using HHBooks.Web.Services;
 using Microsoft.EntityFrameworkCore;
 
@@ -30,6 +30,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseAntiforgery();
 
-app.MapRazorComponents<App>();
+app.MapRazorComponents<App>()
+    .AddAdditionalAssemblies(typeof(HHBooks.Shared.ComponentsUI.Pages.Books).Assembly);
 
 app.Run();

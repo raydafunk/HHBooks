@@ -5,11 +5,11 @@ VisualStudioVersion = 17.9.34714.143
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HHBooks.Web", "HHBooks.Web\HHBooks.Web.csproj", "{87A8738A-BC7C-462A-8CF6-DAEFC18042DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HHBooks.Mobile", "HHBooks.Mobile\HHBooks.Mobile.csproj", "{746D6BDD-ADF5-4D1D-B14C-890C14B40590}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HHBooks.Mobile", "HHBooks.Mobile\HHBooks.Mobile.csproj", "{746D6BDD-ADF5-4D1D-B14C-890C14B40590}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HHBook.Shared", "HHBook.Shared\HHBook.Shared.csproj", "{19776819-55C3-47CD-9D55-BF293569C36D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HHBook.Shared", "HHBook.Shared\HHBook.Shared.csproj", "{19776819-55C3-47CD-9D55-BF293569C36D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HHBooks.Shared.ComponentsUI", "HHBooks.Shared.ComponentsUI\HHBooks.Shared.ComponentsUI.csproj", "{915A2CB0-F0E2-4236-B143-B7420B01B5DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HHBooks.Shared.ComponentsUI", "HHBooks.Shared.ComponentsUI\HHBooks.Shared.ComponentsUI.csproj", "{915A2CB0-F0E2-4236-B143-B7420B01B5DD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
