@@ -13,29 +13,29 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="genre-list">
-                        <div class="genre-item active">
+                        <div class="genre-item @(string.IsNullOrWhiteSpace(GenreSlug) ? "active": "")">
                             <a class="genre-link" href="/" title="Top Books">Top Books</a>
                         </div>
                         @foreach (var g in _genres)
                         {
-                            <div class="genre-item">
+                            <div class="genre-item@(GenreSlug == g.Slug ? "active": "")">
                                 <a class="genre-link" href="?genre=@g.Slug" title="@g.Name Books">@g.Name</a>
                             </div>
                         }
                     </div>
                 </div>
-                <h3 class="my-2">Top Books</h3>
+                <h3 class="mt-mb-3 heading">@_heading</h3>
 
                 <div class="row">
                     @foreach (var b in _books)
                     {
-                        <div class="col-sm-6 col-lg-3">
+                        <div class=" book-block col-sm-6 col-lg-3">
                             <a href="/books/@b.ID" title="@b.Title">
-                                <figure bg-main-light>
+                                <figure class="image-box bg-main-light2">
                                     <img src="@b.Image" alt="Ttile" />
                                 </figure>
                                 <div class"p-2">
-                                    <h6>@b.Title</h6>
+                                    <h6 class="text-main heading text-center">@b.Title</h6>
                                 </div>
                             </a>
                         </div>

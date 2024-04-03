@@ -28,3 +28,8 @@ bg-main-dark{
 a{
     text-decoration: none !important;
 }
+.heading{
+    font-weight: bold;
+    font-size: 20px;
+    color: #444;
+}

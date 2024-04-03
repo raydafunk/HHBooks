@@ -17,8 +17,8 @@ namespace HHBooks.Shared.ComponentsUI.Pages
         private BookListDto[] _books = [];
         private BookListDto[] _popularbooks = [];
         private int _totalCount = 0;
-       
-       //private string _heading
+
+        private string _heading = "Top Books";
 
         [Inject]
         private IBooksServices? _booksServices { get; set; }
@@ -32,6 +32,19 @@ namespace HHBooks.Shared.ComponentsUI.Pages
             _genres = await genresTask;
              (_books, _totalCount) = await bookTask;
             _popularbooks = await popularTask;
+
+            if (!string.IsNullOrWhiteSpace(GenreSlug))
+            {
+                var selectedGeners =  _genres.FirstOrDefault( g => g.Slug == GenreSlug );
+                if (selectedGeners.Name is not null)
+                {
+                    _heading = $"{selectedGeners.Name} books";
+                }
+                else
+                {
+                    _heading = "Top Books";
+                }
+            }
         }
     }
 
