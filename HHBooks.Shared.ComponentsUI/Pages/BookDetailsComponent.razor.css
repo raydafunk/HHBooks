@@ -1,0 +1,12 @@
+﻿.btn-book {
+    position: relative;
+    display: inline-block;
+    font-size: 16px;
+    line-height: 30px;
+    color: #ffffff;
+    padding: 10px 44px 10px;
+    font-weight: 400;
+    border-radius: 50px;
+    background-color: #8B008B;
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.10);
+}

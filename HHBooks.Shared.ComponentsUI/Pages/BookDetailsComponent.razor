@@ -1,0 +1,42 @@
+﻿@page "/books/{bookId:int}"
+
+<PageTitle>@_book?.Title | HH Books </PageTitle>
+
+<SectionContent SectionName="PageTitle">
+    <h1 class="m-0 text-white fw-bold">@_book?.Title - Book Description</h1>
+</SectionContent>
+
+@if (_book is not null)
+{
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-sm-4 d-flex flex-column align-items-center">
+                <div class="image-wrapper">
+                    <img src="@_book.Image" alt="@_book.Title" class="img-responsive" />
+                </div>
+                <div class="my-4">
+                    <table class="table table-bordered">
+                        <tbody>
+                            <tr>
+                                <th scope="row">Book Id</th>
+                                <th>@_book.Id</th>    
+                            </tr> 
+                            <tr>
+                                <th scope="row">Format</th>
+                                <th>@_book.Format</th>    
+                            </tr>
+                            <tr>
+                                <th scope="row">No of Page</th>
+                                <th>@_book.NumPages</th>    
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <a href="@_book.BookLink" target="_blank" class="btn btn-book fab">
+                    @(string.IsNullOrWhiteSpace(_book.BuyLink) ? "Read more" : "Buy Now")
+                </a>
+            </div>
+            <div class="col-sm-8"></div>
+        </div>
+    </div>
+}
