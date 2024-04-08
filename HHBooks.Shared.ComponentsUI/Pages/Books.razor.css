@@ -63,6 +63,7 @@
  }
 .text-main {
     color: #1c1c1a;
+    text-decoration : none;
 }
 .popular-books-container {
     margin-top: 20px;
@@ -98,6 +99,7 @@
     line-height: 25px;
     margin-bottom: 10px;
     position: relative;
+    text-decoration: none;
     left: 100px;
 }
 .book-author {

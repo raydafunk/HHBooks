@@ -1,0 +1,19 @@
+﻿@page "/genres"
+<PageTitle>All Genres | HHBBOKs</PageTitle>
+
+<SectionContent SectionName="PageTitle">
+    <h1 class="m-0 text-white fw-bold">All Genres</h1>
+</SectionContent>
+<div class="container mt-3">
+    <div class="row">
+        @foreach (var g in _genres)
+        {
+            <div class="col-6 col-sm-3 mb-4">
+                <a href="/?genre=@g.Slug" title="@g.Name Book" class="bg-white p-3 d-flex justifiy-content-center align-items-center heading">@g.Name</a>
+            </div>
+        }
+    </div>
+   
+</div>
+
+
