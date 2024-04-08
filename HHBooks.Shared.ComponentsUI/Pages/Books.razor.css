@@ -36,6 +36,11 @@
         color: white;
         border-radius: 5px;
     }
+.genre-itemactive {
+    background-color: #8B008B;
+    color: white;
+    border-radius: 5px;
+}
 
 .genre-link {
     font-weight: bold;
